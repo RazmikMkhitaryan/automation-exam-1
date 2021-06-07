@@ -19,7 +19,6 @@ public class LoginPage extends BasePage {
     private WebElement loginButton;
 
 
-
     public LoginPage() {
         open(getUrl());
         PageFactory.initElements(getDriver(), this);
@@ -51,7 +50,7 @@ public class LoginPage extends BasePage {
         type(password, "Raz123mik");
     }
 
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() {
         click(loginButton);
     }
 

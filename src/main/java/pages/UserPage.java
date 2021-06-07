@@ -7,13 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 import static setup.DriverSetup.getDriver;
 
-public class UserPage extends BasePage{
+public class UserPage extends BasePage {
     @FindBy(css = "[class='user-avatar']")
     private WebElement avatar;
+    @FindBy(css = "[class='up-x-to-close xbutton-injected']")
+    private WebElement xButton;
 
 
     public UserPage() {
-        open(getUrl());
+        //open(getUrl());
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -21,13 +23,19 @@ public class UserPage extends BasePage{
         PageFactory.initElements(getDriver(), this);
         return this;
     }
+
     @Override
     public String getUrl() {
-        return BASE_URL;
+        return null;
     }
 
-    public boolean isAvatarDisplayed(){
+    public boolean isAvatarDisplayed() {
         WaitHelper.getInstance().waitForElementDisplay(avatar);
-       return isDisplayed(avatar);
+        return isDisplayed(avatar);
+    }
+
+    public void closePopUp() {
+        WaitHelper.getInstance().waitForElementDisplay(xButton);
+        click(xButton);
     }
 }

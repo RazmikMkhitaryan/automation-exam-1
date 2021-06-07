@@ -14,7 +14,7 @@ import static setup.DriverSetup.getDriver;
 public abstract class BasePage {
     private static final Logger LOGGER = Logger.getLogger(BasePage.class);
     protected WebDriver driver;
-    public static final String BASE_URL="https://tree.taiga.io";
+    public static final String BASE_URL = "https://tree.taiga.io";
 //    {
 //        String url = System.getProperty("selenium.url", "https://tree.taiga.io/discover");
 //
@@ -37,14 +37,9 @@ public abstract class BasePage {
 
         return driver.findElement(location);
     }
-//    public WebElement find(WebElement element) {
-//        LOGGER.info("Finding  element->" + element.toString());
-//
-//        return driver.findElement((By) element);
-//    }
 
     public void type(By location, String text) {
-       LOGGER.info("Typing element->" + text);
+        LOGGER.info("Typing element->" + text);
         find(location).sendKeys(text);
     }
 
@@ -87,7 +82,6 @@ public abstract class BasePage {
     public List<WebElement> findAll(By location) {
         return driver.findElements(location);
     }
-
 
 
 }

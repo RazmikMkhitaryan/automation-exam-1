@@ -1,8 +1,10 @@
 package pages;
 
+import helpers.WaitHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import static setup.DriverSetup.getDriver;
 
 public class HomePage extends BasePage {
@@ -23,18 +25,17 @@ public class HomePage extends BasePage {
     }
 
 
-
     @Override
     public String getUrl() {
         return BASE_URL;
     }
 
-    public void open(){
+    public void open() {
         getUrl();
     }
 
 
-    public void clickOnLogin(){
+    public void clickOnLogin() {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -43,10 +44,10 @@ public class HomePage extends BasePage {
         click(loginButton);
     }
 
-    public void clickOnSignUp(){
+    public void clickOnSignUp() {
+        WaitHelper.getInstance().waitForElementDisplay(signUp);
         click(signUp);
     }
-
 
 
 }

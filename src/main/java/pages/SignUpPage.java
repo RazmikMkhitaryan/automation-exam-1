@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.WaitHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 import static setup.DriverSetup.getDriver;
 
-public class SignUpPage extends BasePage{
+public class SignUpPage extends BasePage {
     private static String usernameGenerator = UUID.randomUUID().toString();
     private static String emailGenerator = UUID.randomUUID().toString();
     private static String passwordGenerator = UUID.randomUUID().toString();
@@ -41,30 +42,34 @@ public class SignUpPage extends BasePage{
     }
 
 
-
     @Override
     public String getUrl() {
-        return BASE_URL+"/register";
+        return BASE_URL + "/register";
     }
 
-    public void typeUsername(){
-       type(username,usernameGenerator);
-    }
-    public void typePassword(){
-        type(password,passwordGenerator+"R123");
-    }
-    public void typeEmail(){
-        type(email,emailGenerator+"@gmail.com");
-
-    }
-    public void typeFullname(){
-        type(fullName,"A"+fullNameGenerator+" R"+fullNameGenerator);
+    public void typeUsername() {
+        type(username, usernameGenerator);
     }
 
-    public void clickOnCheck(){
+    public void typePassword() {
+        type(password, passwordGenerator + "R123");
+    }
+
+    public void typeEmail() {
+        type(email, emailGenerator + "@gmail.com");
+
+    }
+
+    public void typeFullname() {
+        type(fullName, "Aaskbjhsabdjhasbd");
+    }
+
+    public void clickOnCheck() {
         click(checkBox);
     }
-    public void clickOnSignUop(){
+
+    public void clickOnSignUop() {
         click(button);
+//        WaitHelper.getInstance().waitForElementDisplay()
     }
 }

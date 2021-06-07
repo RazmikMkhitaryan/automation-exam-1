@@ -12,7 +12,7 @@ public class ApiHelper {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
-        RequestBody body = RequestBody.create(mediaType, "");
+        RequestBody body = RequestBody.create(mediaType, "\n\t\"password\": \"Raz123mik\",\n\t\"username\": \"razo96@gmail.com\"\n}\n");
         Request request = new Request.Builder()
                 .url("https://api.taiga.io/api/v1/auth")
                 .method("POST", body)
@@ -22,4 +22,5 @@ public class ApiHelper {
         return JsonParser.parseString(jsonString).getAsJsonObject();
 
     }
+
 }
