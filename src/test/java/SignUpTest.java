@@ -13,6 +13,6 @@ public class SignUpTest {
         signUpPage.typeEmail();
         signUpPage.clickOnCheck();
         signUpPage.clickOnSignUop();
-        assertTrue(ge)
+        assertTrue()
     }
 }
