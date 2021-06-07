@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.WaitHelper;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,7 +42,8 @@ public class LoginPage extends BasePage {
     }
 
     public void typeLogin() {
-        // WaitHelper.getInstance().waitForElementDisplay(login);
+        init();
+         WaitHelper.getInstance().waitForElementDisplay(login);
         type(login, "razo96@gmail.com");
     }
 

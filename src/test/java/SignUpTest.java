@@ -5,7 +5,8 @@ import pages.UserPage;
 
 import static org.testng.Assert.assertTrue;
 
-public class SignUpTest {
+public class SignUpTest extends TestBase {
+
     @Test
     public void signUp() {
         HomePage homePage = new HomePage();
@@ -17,7 +18,6 @@ public class SignUpTest {
         signUpPage.typePassword();
         signUpPage.clickOnCheck();
         signUpPage.clickOnSignUop();
-
         UserPage userPage = new UserPage();
         userPage.closePopUp();
         assertTrue(userPage.isAvatarDisplayed(), "User was not created");

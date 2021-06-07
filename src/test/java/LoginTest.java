@@ -14,7 +14,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setup.DriverSetup.getDriver;
 
-public class LoginTest {
+public class LoginTest extends TestBase {
 
 //    @BeforeMethod
 //    public void login(){
@@ -40,9 +40,9 @@ public class LoginTest {
 
     @Test
     public void loginWithApi() throws IOException {
-        HomePage homePage = new HomePage();
         JsonObject jsonObject = ApiHelper.logIn();
-        assertEquals(jsonObject.getAsJsonObject().get("status").toString(),"success","log in failed");
+        HomePage homePage = new HomePage();
+        assertEquals(jsonObject.get("id").toString(), "481061", "log in failed");
     }
 
 }
