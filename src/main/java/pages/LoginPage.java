@@ -36,7 +36,7 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void setItemInLocalStorage(String item, String value) {
+    public static void setItemInLocalStorage(String item, String value) {
         javascriptExecutor.executeScript(String.format(
                 "window.localStorage.setItem('%s','%s');", item, value));
     }
