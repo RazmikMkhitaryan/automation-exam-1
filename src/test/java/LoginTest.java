@@ -1,4 +1,5 @@
 import com.google.gson.JsonObject;
+import helpers.ApiClient;
 import helpers.ApiHelper;
 import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.html5.WebStorage;
@@ -14,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setup.DriverSetup.getDriver;
 
-public class LoginTest extends TestBase{
+public class LoginTest {
 
 //    @BeforeMethod
 //    public void login(){
@@ -39,16 +40,10 @@ public class LoginTest extends TestBase{
 
 
     @Test
-    public void loginWithApi() throws IOException {
-        JsonObject jsonObject = ApiHelper.logIn();
-        HomePage homePage = new HomePage();
+    public void loginWithApi() throws IOException, InterruptedException {
+        JsonObject jsonObject = ApiClient.login("razo96@gmail.com","Raz123mik");
+        new HomePage();
         assertEquals(jsonObject.get("id").toString(), "481061", "log in failed");
-    }
-
-    @Test
-    public void tteu() throws IOException {
-        JsonObject jsonObject = ApiHelper.loginn();
-        assertEquals(jsonObject.get("id").toString(), "481061", "Auth failed");
     }
 
 

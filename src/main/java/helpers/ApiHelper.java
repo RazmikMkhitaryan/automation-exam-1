@@ -7,6 +7,7 @@ import okhttp3.*;
 import java.io.IOException;
 
 public class ApiHelper {
+    private static String Tokken;
 
     public static JsonObject logIn() throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
@@ -20,24 +21,10 @@ public class ApiHelper {
                 .build();
         Response response = client.newCall(request).execute();
         String jsonString = response.body().string();
+
         return JsonParser.parseString(jsonString).getAsJsonObject();
 
     }
 
-
-    public static JsonObject loginn() throws IOException {
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\"username\": \"razo96@gmail.com\", \"password\": \"Raz123mik\", \"type\": \"normal\"}\n");
-        Request request = new Request.Builder()
-                .url("https://api.taiga.io/api/v1/auth")
-                .method("POST", body)
-                .addHeader("Content-Type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        String jsonString = response.body().string();
-        return JsonParser.parseString(jsonString).getAsJsonObject();
-    }
 
 }
