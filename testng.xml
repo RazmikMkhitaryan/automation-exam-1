@@ -2,10 +2,10 @@
     <listeners>
         <listener class-name="listeners.TestListener"/>
     </listeners>
-    <test name="all-packages">
+    <test name="all-packages" parallel="methods" thread-count="5">
         <classes>
-            <class name = "LoginTest"/>
-            <class name = "SignUpTest"/>
+            <class name="LoginTest"/>
+            <class name="SignUpTest"/>
         </classes>
 
     </test>

@@ -1,16 +1,17 @@
 package helpers;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import setup.DriverHelper;
 
-import static setup.DriverSetup.getDriver;
 
 public class WaitHelper {
     private static final int DEFAULT_TIMEOUT = 10;
-
+    private WebDriver driver = DriverHelper.get().getDriver();
     public static WaitHelper getInstance() {
         WaitHelper waitHelper = new WaitHelper();
         return waitHelper;
@@ -18,7 +19,7 @@ public class WaitHelper {
 
     public WaitHelper waitForElementDisplay(WebElement element) {
         try {
-            WebElement until = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT)
+            WebElement until = new WebDriverWait(driver, DEFAULT_TIMEOUT)
                     .until(ExpectedConditions.visibilityOf((element)));
             return this;
         } catch (WebDriverException e) {
@@ -28,7 +29,7 @@ public class WaitHelper {
 
     public WaitHelper waitForElementDisplay(By location) {
         try {
-            WebElement until = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT)
+            WebElement until = new WebDriverWait(driver, DEFAULT_TIMEOUT)
                     .until(ExpectedConditions.visibilityOfElementLocated((location)));
             return this;
         } catch (WebDriverException e) {
@@ -39,7 +40,7 @@ public class WaitHelper {
 
     public WaitHelper waitForBeClickable(By location) {
         try {
-            WebElement until = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT)
+            WebElement until = new WebDriverWait(driver, DEFAULT_TIMEOUT)
                     .until(ExpectedConditions.elementToBeClickable((location)));
             return this;
         } catch (WebDriverException e) {

@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.LoadableComponent;
+import setup.DriverHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static setup.DriverSetup.getDriver;
-
-public abstract class BasePage {
+public abstract class BasePage <T extends LoadableComponent<T>> extends LoadableComponent<T> {
     private static final Logger LOGGER = Logger.getLogger(BasePage.class);
     protected WebDriver driver;
     public static final String BASE_URL = "https://tree.taiga.io";
@@ -22,7 +22,7 @@ public abstract class BasePage {
 
     public BasePage() {
 
-        this.driver = getDriver();
+        this.driver = DriverHelper.get().getDriver();
     }
 
     public abstract String getUrl();
@@ -74,8 +74,8 @@ public abstract class BasePage {
     }
 
     public void changeTab(int tabIndex) {
-        List<String> windowHandles = new ArrayList<>(getDriver().getWindowHandles());
-        getDriver().switchTo().window(windowHandles.get(tabIndex));
+        List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowHandles.get(tabIndex));
 
     }
 

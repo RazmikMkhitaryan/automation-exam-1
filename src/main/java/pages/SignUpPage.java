@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.UUID;
 
-import static setup.DriverSetup.getDriver;
 
 public class SignUpPage extends BasePage {
     private static String usernameGenerator = UUID.randomUUID().toString();
@@ -33,11 +32,21 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage() {
         open(getUrl());
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 
     public SignUpPage init() {
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
         return this;
     }
 

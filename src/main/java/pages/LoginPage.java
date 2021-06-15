@@ -6,10 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static setup.DriverSetup.getDriver;
-
 public class LoginPage extends BasePage {
-    private static final JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
+    private final JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 
     @FindBy(css = "[name='username']")
     private WebElement login;
@@ -22,11 +20,22 @@ public class LoginPage extends BasePage {
 
     public LoginPage() {
         open(getUrl());
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+
     }
 
     public LoginPage init() {
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
         return this;
     }
 
@@ -36,7 +45,7 @@ public class LoginPage extends BasePage {
     }
 
 
-    public static void setItemInLocalStorage(String item, String value) {
+    public void setItemInLocalStorage(String item, String value) {
         javascriptExecutor.executeScript(String.format(
                 "window.localStorage.setItem('%s','%s');", item, value));
     }

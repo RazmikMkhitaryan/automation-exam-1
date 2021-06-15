@@ -4,9 +4,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-import static setup.DriverSetup.getDriver;
-import static setup.DriverSetup.quit;
-
 public class TestBase {
 
 //    @AfterMethod

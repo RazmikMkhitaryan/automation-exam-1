@@ -3,16 +3,17 @@ package pages;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import helpers.ApiClient;
+import helpers.WaitHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import setup.DriverHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static setup.DriverSetup.getDriver;
 
 public class ProjectsPage extends BasePage {
     @FindBy(css = "[class='list-itemtype-project tg-scope']")
@@ -23,12 +24,23 @@ public class ProjectsPage extends BasePage {
 
     public ProjectsPage() {
         open(getUrl());
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(DriverHelper.get().driver, this);
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        WaitHelper.getInstance().waitForElementDisplay(avatar);
+
     }
 
 
     public void init() {
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
 
     }
 
