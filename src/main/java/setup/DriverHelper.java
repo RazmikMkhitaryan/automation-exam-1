@@ -11,7 +11,7 @@ public class DriverHelper {
     }
 
     public WebDriver driver;
-    private static final String BROWSER = System.getProperty("selenium.browser", "chrome");
+    private static final String BROWSER = System.getProperty("selenium.browser", "firefox");
     private static ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();
 
     public WebDriver getDriver() {
@@ -26,7 +26,7 @@ public class DriverHelper {
 
                 case "firefox":
                     System.setProperty("webdriver.gecko.driver",
-                            "./src/main/resources/drivers/geckodriver");
+                            "./src/main/resources/geckodriver");
                     driver = new FirefoxDriver();
                     driverThread.set(driver);
                     break;

@@ -30,7 +30,7 @@ public class LoginPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-
+        isDisplayed(loginButton);
 
     }
 
@@ -52,7 +52,7 @@ public class LoginPage extends BasePage {
 
     public void typeLogin() {
         init();
-         WaitHelper.getInstance().waitForElementDisplay(login);
+        WaitHelper.getInstance().waitForElementDisplay(login);
         type(login, "razo96@gmail.com");
     }
 

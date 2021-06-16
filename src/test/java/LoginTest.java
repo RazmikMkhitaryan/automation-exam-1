@@ -52,7 +52,7 @@ public class LoginTest {
         LoginPage loginPage = new LoginPage();
         loginPage.setItemInLocalStorage("token", "\"eyJ1c2VyX2F1dGhlbnRpY2F0aW9uX2lkIjo0ODEwNjF9:1lrK8z:IkJMXNdSiYzKkBanHyVW7ExPv8c\"");
         loginPage.setItemInLocalStorage("userInfo", "{\"id\":481061,\"username\":\"razmik\",\"full_name\":\"Razmik Mkhitaryan\",\"full_name_display\":\"Razmik Mkhitaryan\",\"color\":\"#682a4c\",\"bio\":\"\",\"lang\":\"\",\"theme\":\"\",\"timezone\":\"\",\"is_active\":true,\"photo\":null,\"big_photo\":null,\"gravatar_id\":\"d70bc2ab36be838a5c06a7db72275814\",\"roles\":[],\"total_private_projects\":0,\"total_public_projects\":0,\"email\":\"razo96@gmail.com\",\"uuid\":\"6c94f73a28114ad182bcdd387fcddf9a\",\"date_joined\":\"2021-06-07T15:17:33.312Z\",\"read_new_terms\":true,\"accepted_terms\":true,\"max_private_projects\":1,\"max_public_projects\":null,\"max_memberships_private_projects\":3,\"max_memberships_public_projects\":null,\"verified_email\":false,\"auth_token\":\"eyJ1c2VyX2F1dGhlbnRpY2F0aW9uX2lkIjo0ODEwNjF9:1lrK8z:IkJMXNdSiYzKkBanHyVW7ExPv8c\"}");
-        UserPage userPage = new UserPage();
+        UserPage userPage = (UserPage) new UserPage().get();
         new HomePage();
         assertTrue(userPage.isAvatarDisplayed(), "log in failed");
 

@@ -25,7 +25,7 @@ public class HomePage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-
+        isDisplayed(loginButton);
     }
 
     public HomePage init() {

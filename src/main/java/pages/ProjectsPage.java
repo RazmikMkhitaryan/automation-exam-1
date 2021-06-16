@@ -34,8 +34,7 @@ public class ProjectsPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        WaitHelper.getInstance().waitForElementDisplay(avatar);
-
+        isDisplayed(avatar);
     }
 
 
@@ -49,14 +48,13 @@ public class ProjectsPage extends BasePage {
         return BASE_URL + "/projects/";
     }
 
-    public boolean isDisplayedAvatar(){
+    public boolean isDisplayedAvatar() {
         return isDisplayed(avatar);
     }
 
-    public boolean isProjectAdded(){
-       return isDisplayed(allProjects);
+    public boolean isProjectAdded() {
+        return isDisplayed(allProjects);
     }
-
 
 
 }

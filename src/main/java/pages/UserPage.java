@@ -25,7 +25,7 @@ public class UserPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-
+        isDisplayed(avatar);
     }
 
     public UserPage init() {
